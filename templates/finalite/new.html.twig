@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Finalite{% endblock %}
+
+{% block body %}
+    <h1>Create new Finalite</h1>
+
+    {{ include('finalite/_form.html.twig') }}
+
+    <a href="{{ path('app_finalite_index') }}">back to list</a>
+{% endblock %}

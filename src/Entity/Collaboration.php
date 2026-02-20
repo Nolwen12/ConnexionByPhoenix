@@ -18,9 +18,6 @@ class Collaboration
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $statut = null;
-
     /**
      * @var Collection<int, Rencontre>
      */
@@ -74,18 +71,6 @@ class Collaboration
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getStatut(): ?string
-    {
-        return $this->statut;
-    }
-
-    public function setStatut(string $statut): static
-    {
-        $this->statut = $statut;
 
         return $this;
     }

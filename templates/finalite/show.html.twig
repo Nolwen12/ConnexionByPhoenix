@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Finalite{% endblock %}
+
+{% block body %}
+    <h1>Finalite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ finalite.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ finalite.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ finalite.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_finalite_index') }}">back to list</a>
+
+    <a href="{{ path('app_finalite_edit', {'id': finalite.id}) }}">edit</a>
+
+    {{ include('finalite/_delete_form.html.twig') }}
+{% endblock %}

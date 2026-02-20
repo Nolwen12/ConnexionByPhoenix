@@ -16,6 +16,16 @@ class MessageRepository extends ServiceEntityRepository
         parent::__construct($registry, Message::class);
     }
 
+    //calcule le nombre de message qu'une personne a avec une autre
+    public function countByCollaboration($collaboration): int
+    {
+        return $this->createQueryBuilder('m')
+            ->select('COUNT(m.id)')
+            ->where('m.collaboration = :collab')
+            ->setParameter('collab', $collaboration)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
     //    /**
     //     * @return Message[] Returns an array of Message objects
     //     */

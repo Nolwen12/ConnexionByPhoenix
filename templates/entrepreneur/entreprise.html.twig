@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntrepreneurController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{entreprise.nom}}</h1>
+
+    <p> Nous somme une {{entreprise.type}} {{entreprise.nationalite}}.</p>
+    <h3>Notre activité : </h3>
+    <p>{{entreprise.activite}}</p>
+
+    <a href="{{path('app_message', {id: entreprise.id})}}">Pour plus d'information, envoyer nous un message</a>
+    {% if nbMessages > 4 %}
+        <a href="{{path('app_appel')}}">Appellez au </a>
+        <a href="{{path('app_lieu')}}">Chercher un lieu pour se voir</a>
+        <a href="{{path('app_banque')}}">Allez plus loin</a>
+    {% endif %}
+</div>
+{% endblock %}

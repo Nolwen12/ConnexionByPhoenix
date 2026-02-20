@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeurEmploie index{% endblock %}
+
+{% block body %}
+    <h1>DemandeurEmploie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demandeur_emploie in demandeur_emploies %}
+            <tr>
+                <td>{{ demandeur_emploie.id }}</td>
+                <td>{{ demandeur_emploie.cv }}</td>
+                <td>
+                    <a href="{{ path('app_demandeur_emploie_show', {'id': demandeur_emploie.id}) }}">show</a>
+                    <a href="{{ path('app_demandeur_emploie_edit', {'id': demandeur_emploie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demandeur_emploie_new') }}">Create new</a>
+{% endblock %}
